@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    h3{width:300px; height:100px; border:1px solid black;
+    white-space:nowrap;  /* 줄단락을 없앰 */
+    overflow:hidden;  /* 테두리를 벗어나는 것을 숨김 */
+    text-overflow:ellipsis;}  /* 말 줄임표 */
+
+    /* hover: 마우스 위에 올림 */
+    h3:hover{white-space:normal; overflow:visible;}
+
+    div{width:300px; height:200px; border:1px solid black;
+    /*white-space:nowrap;*/
+    overflow:scroll;}  /* 스크롤 내리기 */
+
+    h2{width:800px; height:200px; 
+    text-align:center;  /* 글자 가운데 정렬 */
+    border:1px solid black;
+    word-spacing:40px;  /* 단어간격 */
+    letter-spacing:30px;  /* 글자간격(자간) */
+    text-shadow:5px 35px 35px #f00;  /* 폰트그림자(좌우,위아래,흩뿌리기) */
+    text-decoration:line-through;  /* overline, underline, line-through, none */
+    font-size:50px;
+     /* 글자 색상 */
+    /* color:rgb(0,0,0,0.8); 투명도 설정 가능 */
+    /* color:black; 문자색상 전용 */
+    color:#000000; /* 16진수 코드 적용 #000 */
+    margin:0 auto;  /* 사각모델을 가운데 정렬 */
+    line-height:190px;}  /* 세로 가운데 정렬*/
+    /* padding-top:60px, box-sizing:border-box; (세로 가운데 정렬)총 2가지 */
+
+    p{width:400px; height:500px; border:1px solid black;
+    font-size:17px; font-weight:700;
+    line-height:60px; text-align:justify;}  /* 줄간격, justify:끝맞춤 */
+  </style>
+</head>
+<body>
+  <h3>
+    튀르키예의 유명 관광지인 카파도키아 지역에서 한국인 관광객 2명이 현금 2천200여만원이 든 가방을 훔친 혐의로 체포됐다.
+  </h3>
+  <div>
+    튀르키예의 유명 관광지인 카파도키아 지역에서 한국인 관광객 2명이 현금 2천200여만원이 든 가방을 훔친 혐의로 체포됐다. 5일 튀르키예 통신사 DHA에 따르면 지난달 27일(현지시각) 오후 9시30분쯤 네브셰히르주 괴레메의 한 카페에서 알바니아 관광객 샤본 리제니가 가방을 도난 당했다.
+
+    당시 친척들과 함께 커피를 마신 뒤 카페를 떠난 리제니는 가방을 두고 온 사실을 깨닫고 다시 카페로 돌아왔다. 가방 안에는 신분증과 카드, 1천500 호주달러(약 130만원), 1만2천100파운드(약 2천100만원) 등
+  </div>
+  <h2>글꼴 관련 스타일</h2>
+  <p>
+    튀르키예의 유명 관광지인 카파도키아 지역에서 한국인 관광객 2명이 현금 2천200여만원이 든 가방을 훔친 혐의로 체포됐다.
+
+5일 튀르키예 통신사 DHA에 따르면 지난달 27일(현지시각) 오후 9시30분쯤 네브셰히르주 괴레메의 한 카페에서 알바니아 관광객 샤본 리제니가 가방을 도난 당했다.
+
+당시 친척들과 함께 커피를 마신 뒤 카페를 떠난 리제니는 가방을 두고 온 사실을 깨닫고 다시 카페로 돌아왔다. 가방 안에는 신분증과 카드, 1천500 호주달러(약 130만원), 1만2천100파운드(약 2천100만원) 등 현금 2천200여만원이 들어있었다.
+  </p>
+  
+</body>
+</html>
