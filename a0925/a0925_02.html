@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <title>Document</title>
+  <script>
+    // 제이쿼리 구문
+    $(function(){ 
+
+      // 슬라이드 닫힘
+      $(".btn2").click(function(){
+        $(".box").stop();
+        $(".box").slideUp(1000,"linear",function(){
+
+          
+        }
+      );
+    })
+    // 슬라이드 열림
+    $(".btn1").click(function(){
+        $(".box").stop();
+        $(".box").slideDown(1000,"linear",function(){
+
+
+          }
+        );
+      })
+
+      // fadeIn 효과
+      $(".btn3").on("click",function(){
+        $(".box").fadeIn(500,"swing",function(){
+
+        });
+      });
+
+      // toggle 효과
+      $(".btn4").on("click",function(){
+        $(".box").stop();
+        $(".box").slideToggle(500,"linear");
+      });
+
+
+     
+    });  // 제이쿼리 구문
+  </script>
+  <style>
+    .content{width:400px; border:1px solid black;}
+  </style>
+</head>
+<body>
+  <button class="btn1">슬라이드열림</button>
+  <button class="btn2">슬라이드닫힘</button>
+  <button class="btn3">페이드 in</button>
+  <button class="btn4">toggle</button>
+  <br>
+  <div class="box">
+    <div class="content">
+      처우 개선을 요구하며 이달 초부터 파업을 이어가고 있는 삼성전자 인도공장 노동조합원들이 기존에 알려진 급여 인상 외에 파격적인 복리후생을 요구한 것으로 확인됐다. 주 35시간 근무제, 직원 사망 시 고용 승계 등 받아들이기 어려운 요구안을 내세우며 출근을 거부하고 있다.
+      25일 삼성전자에 따르면 인도 타밀나두주(州) 첸나이 지역에 있는 삼성전자 인도 공장 노동자들은 최근 인도노동조합센터(CITU) 산하 노조를 결성해 급여 인상과 복리후생 개선을 요구하며 조업 거부에 나서고 있다. 현재 노동자 2000여명 중 800여명이 지난 9일부터 2주 넘게 출근을 거부하는 상태다.
+    </div>
+
+  </div>
+  
+</body>
+</html>

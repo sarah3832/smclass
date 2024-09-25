@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <title>Document</title>
+  <script>
+    $(function(){
+    $("#dataBtn").click(()=>{
+      alert("데이터를 로딩중...");
+
+    $.ajax({
+      url:"js/stuDATA.json",
+      type:"get",
+      data:"",
+      dataType:"json",
+      success:function(data){
+        var h_data = "";
+        
+        for(var i=0;i<data.length;i++){
+            h_data += `<tr id='d01'>`
+            h_data += `<td>${data[i].no}</td>`
+            h_data += `<td>${data[i].name}</td>`
+            h_data += `<td>${data[i].kor}</td>`
+            h_data += `<td>${data[i].eng}</td>`
+            h_data += `<td>${data[i].math}</td>`
+            
+            h_data += `<td>${data[i].kor+data[i].eng+data[i].math}</td>`
+            h_data += `<td>${((data[i].kor+data[i].eng+data[i].math) / 3).toFixed(2)}</td>`
+            h_data += `<td><button class='delBtn'>삭제</button><button class='delBtn'>수정</button></td>`;
+
+            h_data += `</tr>`
+          }
+          $("#tbody").html(h_data);
+
+          $(document).on("click",".delBtn",function(){
+        var delId = $(this).closest("tr").attr("id");
+        $("#"+delId).remove();
+      });
+        },
+
+        error:function(){
+          alert("실패");
+        }
+      });
+    });
+  });
+      
+  </script>
+  <style>
+    h1{text-align:center;}
+    table,th,td{border:1px solid black; border-collapse:collapse;}
+    table{width:80%; margin:0 auto;}
+    th,td{width:150px; height:40px; text-align:center;}
+  </style>
+</head>
+<body>
+  <h1>게시판</h1>
+  <button id="dataBtn">데이터 가져오기</button>
+  <form>
+    <label>이름</label>
+    <input type="text" name="name"><br>
+    <label>국어</label>
+    <input type="text" name="kor" id="kor"><br>
+    <label>영어</label>
+    <input type="text" name="name"><br>
+    <label>수학</label>
+    <input type="text" name="name"><br>
+  </form>
+  <table>
+    <thead>
+      <tr>
+        <th>번호</th>
+        <th>이름</th>
+        <th>국어</th>
+        <th>영어</th>
+        <th>수학</th>
+        <th>합계</th>
+        <th>평균</th>
+        <th>삭제</th>
+      </tr>
+    </thead>
+    <tbody id="tbody">
+      
+
+    </tbody>
+  </table>
+  
+</body>
+</html>
