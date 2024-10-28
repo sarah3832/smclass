@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-import random
+import csv
 # email 발송관련
 import smtplib
 from email.mime.text import MIMEText
@@ -11,6 +11,7 @@ url = 'https://news.naver.com/main/ranking/popularDay.naver'
 headers = {"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"}
 res = requests.get(url,headers=headers)
 res.raise_for_status()
+
 # html 전체를 가져옴.
 soup = BeautifulSoup(res.text,"lxml")
 # 기준점
@@ -28,25 +29,30 @@ for i,r_list in enumerate(r_lists):
   print(rnews)
   f.write(f"{no},{rnews}\n")
 f.close()
+
 # 메일보내기
 smtpName = "smtp.naver.com"
 smtpPort = 587
+
 # 자신의 네이버메일주소,pw, 받는사람이메일주소
 sendEmail = "sarah3832@naver.com"
-pw = "PN7T8EJQYS3Q"
+pw = "YHWPLD9CTMJT"
 recvEmail = "sarah3832@naver.com"
 title = "랭킹뉴스"
 content = "랭킹뉴스 파일을 첨부합니다."
+
 msg = MIMEMultipart()
 msg["Subject"] = title
 msg["From"] = sendEmail
 msg["To"] = recvEmail
 msg.attach(MIMEText(content))
+
 # 파일첨부
 with open("news.txt",'rb') as f:
   attachment = MIMEApplication(f.read()) # 파일첨부
   attachment.add_header('Content-Disposition','attachment',filename="news.txt")
   msg.attach(attachment)
+  
 s = smtplib.SMTP(smtpName,smtpPort)
 s.starttls() # 보안인증
 # 2단계 보안설정이 되어 있는 경우는 에러 발생
