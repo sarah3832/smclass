@@ -44,7 +44,7 @@ rows = cursor.fetchall()
 
 title = ['id','no','name','email','phone','gender','hobby','datetime']
 for i in title:
-  print(f"{i:10}",end='\t')
+  print(f"{i:15}",end='\t')
 print()
 print("-"*140)
 
