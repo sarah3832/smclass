@@ -106,14 +106,14 @@ while True:
       conn.commit()
 
       print("비밀번호가 수정되었습니다.")
-      cursor.close()
+      
 
 
 
     else:
       print("아이디가 존재하지 않습니다.")
 
-
+    cursor.close()
 
   elif choice == "3":
     pass
