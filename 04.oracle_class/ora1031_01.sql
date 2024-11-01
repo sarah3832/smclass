@@ -303,7 +303,7 @@ select concat(emp_name,email) from employees;
 
 --------------------
 
--- lower:소문자 취환 / upper:대문자 취환 / initcap:첫글자 대문자 취환
+-- lower:소문자 치환 / upper:대문자 치환 / initcap:첫글자 대문자 치환
 select * from member where lower(name)='bryan';
 
 select 'joHn',initcap('joHn'),lower('joHn'),upper('joHn') from dual;
@@ -317,7 +317,44 @@ select 'john',rpad('john',10,'#') from dual;
 -- trim : 빈공백 없애기 / ltrim : 왼쪽 공백없애기 / rtrim : 오른쪽 공백없애기
 select length('    aaa   '),length(trim('  aaa  ')) from dual;
 
--- replace : 취환 (대체하기)
+-- replace : 치환 (대체하기)
 select '   a  b c  ',trim('   a  b c  ') from dual;
 
 select length('   a  b c  '),length(trim('   a  b c  ')),length(replace('   a  b c  ',' ','')) from dual;
+
+
+-- substr : 특정위치 자르기 (시작위치,개수)
+select 'abcdefg',substr('abcdefg',0,3),substr('abcdefg',3,2) from dual;
+
+-- 입사일이 3월인 사원을 출력하시오.
+select hire_date from employees;
+select emp_name,hire_date from employees where substr(hire_date,5,1) in (3,8,10);
+
+-- 7월 이상
+select emp_name,hire_date from employees where substr(hire_date,5,1) > 7;
+
+
+-- translate 치환
+-- 한글자, 한글자에 해당되는 단어를 각각의 단어로 취환
+-- 순서에 없는 변환글자는 삭제처리
+select 'axyz',translate('jxyzxkkcyjccx','xyk','ab') from dual;  --  x->a / y->b
+-- replace 치환 : 똑같은 것만 바꿈(xy -> ab)
+select 'axyz',replace('jxyzxkkcyjccx','xy','ab') from dual; 
+
+ 
+-- length() : 문자의 길이
+-- students테이블에 name글자길이가 5자이상인 학생만 출력하시오.
+select name from students where length(name) > 5;
+
+
+
+-- 사원의 월급의 합,평균을 구하시오.
+select emp_name,sum(salary),avg(salary) from employees group by emp_name;
+
+-- 영어점수의 합,평균,최대값,최소값 구하시오.
+select sum(eng),avg(eng),max(eng),min(eng) from students;
+
+-- 학생테이블에서
+-- 홍길동, 등록일 : 2023년 12월 02 일 ..
+select * from students;
+select name,to_char(sdate,'"등록일 : "yyyy"년"mm"월"dd"일"') from students;
